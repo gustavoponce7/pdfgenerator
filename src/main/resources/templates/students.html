@@ -35,8 +35,11 @@
             </tr>
         </table>
     </div>
-    <img th:src="@{/images/pdf_icon.png}" height="35" width="35"/>
-    <a th:href="@{|/download-pdf|}"><span>Download PDF Document</span></a>
+
+    <a th:href="@{|/download-pdf|}">
+        <img th:src="@{/images/pdf_icon.png}" height="35" width="35"/>
+        <span>Download PDF Document</span>
+    </a>
 </div>
 
 </body>
