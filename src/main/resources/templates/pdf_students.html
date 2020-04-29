@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Students</title>
+    <bookmarks>
+        <bookmark name="Students" href="#students"></bookmark>
+    </bookmarks>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+</head>
+
+<body>
+<img class="logo" src="images/logo.png"/>
+<span class="titles-style" th:text="|Students / Count: ${#lists.size(students)}|"></span>
+
+<!-- Students Table -->
+<div id="students">
+    <div th:if="${not #lists.isEmpty(students)}">
+        <table class="students_table paginate-table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Last Name</th>
+                <th>Nationality</th>
+                <th>University</th>
+                <th>Active</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="student : ${students}">
+                <td th:text="${student?.id}"></td>
+                <td th:text="${student?.name}"></td>
+                <td th:text="${student?.lastName}"></td>
+                <td th:text="${student?.nationality}"></td>
+                <td th:text="${student?.university}"></td>
+                <td th:text="${student?.active}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Students View</title>
+    <!-- Bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+
+    <h1 th:text="'Students / Count:' + ${#lists.size(students)}" ></h1>
+
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Last Name</th>
+                <th>University</th>
+                <th>Nationality</th>
+                <th>Birthday</th>
+                <th>Active</th>
+            </tr>
+            <tr th:each="student : ${students}">
+                <td th:text="${student.id}"></td>
+                <td th:text="${student.name}"></td>
+                <td th:text="${student.lastName}"></td>
+                <td th:text="${student.university}"></td>
+                <td th:text="${student.nationality}"></td>
+                <td th:text="${#temporals.format(student.birthday, 'dd/MM/yyyy')}"></td>
+                <td th:text="${student.active}"></td>
+            </tr>
+        </table>
+    </div>
+    <img th:src="@{/images/pdf_icon.png}" height="35" width="35"/>
+    <a th:href="@{|/download-pdf|}"><span>Download PDF Document</span></a>
+</div>
+
+</body>
+</html>
