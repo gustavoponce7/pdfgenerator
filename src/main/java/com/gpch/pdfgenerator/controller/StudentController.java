@@ -17,8 +17,8 @@ import java.nio.file.Paths;
 @Controller
 public class StudentController {
 
-    private StudentService studentService;
-    private PdfService pdfService;
+    private final StudentService studentService;
+    private final PdfService pdfService;
 
     @Autowired
     public StudentController(StudentService studentService, PdfService pdfService) {
